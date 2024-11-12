@@ -14,3 +14,26 @@ Vous disposez d’un fichier HTML qui contient une nav.
 		avec le texte qui précède le lien dans l’énoncé ci-dessus)
 AIDE : Utilisez une boucle for/in pour parcourir l'objet tutos
 */
+
+const tutos = {
+    "Openclassrooms : Apprenez à coder avec JavaScript": "https://openclassrooms.com/fr/courses/2984401-apprenez-a-coder-avec-javascript",
+    "Openclassrooms : Créez des pages web interactives avec JavaScript": "https://openclassrooms.com/fr/courses/3306901-creez-des-pages-web-interactives-avec-javascript/",
+    "Udemy : The Complete JavaScript Course 2019 : Build Real Projects!": "https://www.udemy.com/course/the-complete-javascript-course/"
+};
+
+const h2Element = document.createElement('h2');
+h2Element.textContent = 'Mes tutos JavaScript';
+document.querySelector('nav').appendChild(h2Element);
+
+const ulElement = document.createElement('ul');
+for (const[titre, url] of Object.entries(tutos)) {
+    const liElement = document.createElement('li');
+    const aElement = document.createElement('a');
+    aElement.href = url;
+    aElement.textContent = titre;
+    aElement.title = `Vers le site de ${titre.split(':')[0]}`;
+    liElement.appendChild(aElement);
+    ulElement.appendChild(liElement);
+}
+
+document.querySelector('nav').appendChild(ulElement);

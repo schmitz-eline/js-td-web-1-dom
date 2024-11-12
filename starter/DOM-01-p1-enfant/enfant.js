@@ -13,10 +13,17 @@ AIDES :
 */
 
 // Insérez votre code ici
-
-
-
-
+function afficherEnfant(noeud, indice) {
+    if (noeud.nodeType === document.ELEMENT_NODE) {
+        if (indice >= 0 && indice < noeud.childNodes.length) {
+            console.log(noeud.childNodes[indice]);
+        } else {
+            console.error('Indice incorrct');
+        }
+    } else {
+        console.error('Type de noeud incorrect');
+    }
+}
 
 // Doit afficher le noeud h1
 afficherEnfant(document.body, 1);

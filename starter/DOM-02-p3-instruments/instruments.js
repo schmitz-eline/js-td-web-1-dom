@@ -20,8 +20,33 @@ SOURCE : https://github.com/oc-courses/javascript-web
     - si l'élément d'id "contrebasse" possède la classe "cordes" (doit afficher "Aucun élément ne possède l'id contrebasse")
 */
 
+function getInfosLiens() {
+    const liensElements = document.getElementsByTagName('a');
+    const nbLiens = liensElements.length;
+    console.log(`Il y a ${nbLiens} liens dans la page.`);
 
+    if (nbLiens > 0) {
+        console.log('Premier lien : ' + liensElements[0].getAttribute('href'));
+        console.log('Dernier lien : ' + liensElements[nbLiens - 1].getAttribute('href'));
+    }
+}
 
+getInfosLiens();
 
+document.querySelector('ul').insertAdjacentHTML('beforeend', '<li id="clavecin" class="cordes pincees">Le <a href="https://fr.wikipedia.org/wiki/Clavecin">clavecin</a></li>');
 
+getInfosLiens();
 
+function possede(id, classe) {
+    const instrument = document.getElementById(id);
+    if (instrument !== null) {
+        console.log(instrument.classList.contains(classe));
+    } else {
+        console.log(`Aucun élément ne possède l'id ${id}.`)
+    }
+}
+
+possede('saxophone', 'bois');
+possede('saxophone', 'cuivre');
+possede('trompette', 'cuivre');
+possede('contrebasse', 'cordes');

@@ -8,17 +8,16 @@ SOURCE :
 
 // A. Premiers pas avec le DOM en JavaScript
 
-// 1. Accéder au DOM avec la variable document
+// 1. Accéder au DOM avec la constante document
 /* 
 EXERCICE 1 : Afficher dans la console
 - l'objet head du DOM (représentant l'élément <head>) 
 - l'objet body du DOM (représentant l'élément <body>) 
 - le titre du document
 */
-
-
-
-
+console.log(document.head);
+console.log(document.body);
+console.log(document.title);
 
 // 2. Découvrir le type d'un nœud
 /*
@@ -36,15 +35,15 @@ Afficher la valeur de la propriété nodeType du body dans la console
 (N.B. pour comprendre le résultat affiché, voir la documentation du MDN sur nodeType
 https://developer.mozilla.org/fr/docs/Web/API/Node/nodeType)
 */
-
-
-
-
-
+if (document.body.nodeType === document.ELEMENT_NODE) {
+    console.log(`body est un noeud élément (${document.body.nodeType})`);
+} else {
+    console.log(`body est un noeud textuel (${document.body.nodeType})`);
+}
 
 // 3. Accéder aux enfants d'un nœud élément
 /*
-Chaque objet du DOM de type élément possède une propriétéchildNodes.
+Chaque objet du DOM de type élément possède une propriété childNodes.
 Il s'agit d'une collection ordonnée regroupant tous ses nœuds enfants sous la forme d'objets DOM.
 On peut utiliser cette collection un peu comme un tableau pour accéder aux différents enfants d'un nœud.
 */
@@ -57,14 +56,15 @@ Accéder aux enfants d'un nœud. Afficher :
 */
 
 // Affiche le premier enfant du noeud body
-
+console.log(`Premier enfant de body : ${document.body.firstChild}`);
 
 // Affiche le deuxième enfant du noeud body
-
+console.log(`Deuxième enfant de body : ${document.body.childNodes[1]}`);
 
 // Affiche les noeuds enfants du noeud body
-
-
+for (const child of document.body.childNodes) {
+    console.log(child);
+}
 
 // 4. Accéder au parent d'un nœud
 /*
@@ -79,7 +79,7 @@ Accéder au parent d'un nœud. Afficher
 */
 
 // Affiche le parent du noeud h1
-
-
+console.log(`Parent de h1 : ${document.querySelector('h1').parentNode}`);
 
 // Accès au parent du noeud document ?
+console.log(`Parent de document : ${document.parentNode}`);

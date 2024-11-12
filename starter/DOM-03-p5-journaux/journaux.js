@@ -15,3 +15,21 @@ Il a sans doute été simplifié à outrance dans un souci
 de rendre la génération la plus simple possible en JS.
 TODO : améliorer le balisage HTML généré !!! */
 
+const journaux = [
+    "http://lemonde.fr",
+    "http://lefigaro.fr",
+    "http://liberation.fr"
+];
+
+const ulElement = document.createElement('ul');
+
+for (const url of journaux) {
+    const liElement = document.createElement('li');
+    const aElement = document.createElement('a');
+    aElement.href = url;
+    aElement.textContent = url;
+    liElement.appendChild(aElement);
+    ulElement.appendChild(liElement);
+}
+
+document.getElementById('contenu').appendChild(ulElement);

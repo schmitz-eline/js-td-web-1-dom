@@ -8,9 +8,9 @@ SOURCE : https://github.com/oc-courses/javascript-web
  Déclarez la fonction compterElements afin que le reste du programme fonctionne correctement.
 */
 
-// Insérez votre code ici
-
-
+function compterElements(selecteur) {
+    return document.querySelectorAll(selecteur).length;
+}
 
 console.log(compterElements("p")); // Doit afficher 4
 console.log(compterElements(".adjectif")); // Doit afficher 3
