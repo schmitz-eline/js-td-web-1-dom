@@ -35,9 +35,11 @@ console.log(document.querySelectorAll('li.impair').length);
 
 /* 7. Cibler le 4e li puis, à partir de là, cibler son frère juste avant lui */
 console.log(document.querySelectorAll('li')[3].previousSibling);
+console.log(document.querySelector('li:nth-child(4)').previousSibling);
 
 /* 8. Cibler le 4e li puis, à partir de là, cibler le suivant */
 console.log(document.querySelectorAll('li')[3].nextSibling);
+console.log(document.querySelector('li:nth-child(4)').nextSibling);
 
 /* 9. Cibler le parent du 4e li */
 console.log(document.querySelectorAll('li')[3].parentNode);
